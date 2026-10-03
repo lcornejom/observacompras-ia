@@ -1,0 +1,6 @@
+{
+  "codificador": "lsa",
+  "modelo": "TF-IDF+SVD (solo prueba)",
+  "dimension": 384,
+  "n": 11450
+}

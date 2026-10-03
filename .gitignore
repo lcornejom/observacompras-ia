@@ -1,0 +1,11 @@
+# Datos crudos de ChileCompra (pesados; se descargan del portal)
+data/raw/*
+!data/raw/LEEME.md
+# Codificador de respaldo solo para pruebas
+models/codificador_lsa_prueba.joblib
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+.DS_Store

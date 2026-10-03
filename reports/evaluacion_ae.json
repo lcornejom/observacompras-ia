@@ -1,0 +1,42 @@
+{
+  "anio_entrenamiento": 2023,
+  "anio_evaluacion": 2024,
+  "n_organismos_entrenamiento": 224,
+  "n_organismos_evaluacion": 224,
+  "hiperparametros_elegidos": {
+    "learning_rate": 0.01,
+    "batch_size": 8,
+    "val_loss_media": 0.005977040901780128,
+    "epochs_final": 133
+  },
+  "H1_recall_5pct": {
+    "autoencoder": 0.8,
+    "linea_base_z": 0.45,
+    "meta": 0.8,
+    "cumple_meta": true,
+    "por_tipo_autoencoder": {
+      "combinacion": 0.5,
+      "monto_extremo": 1.0,
+      "oferente_unico": 0.75,
+      "proveedor_unico": 1.0,
+      "trato_directo": 0.75
+    },
+    "por_tipo_linea_base_z": {
+      "combinacion": 0.0,
+      "monto_extremo": 1.0,
+      "oferente_unico": 0.0,
+      "proveedor_unico": 1.0,
+      "trato_directo": 0.25
+    },
+    "n_anomalias": 20
+  },
+  "H1_estabilidad_top10": {
+    "coincidencia_media_pares": 5.4,
+    "coincidencia_minima_pares": 4,
+    "interseccion_todos_los_folds": 3,
+    "top": 10,
+    "meta": 7,
+    "cumple_meta": false
+  },
+  "coincidencia_top10_autoencoder_vs_z": 3
+}

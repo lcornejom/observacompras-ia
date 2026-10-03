@@ -1,0 +1,36 @@
+{
+  "modo_periodo": "demo",
+  "oc_lineas_leidas": 1296876,
+  "oc_lineas_sector": 1296876,
+  "archivos_oc": 4,
+  "archivos_licitaciones": 6,
+  "oc_unicas": 365512,
+  "oc_tras_excluir_estados": 365254,
+  "oc_descartadas_monto_o_fecha_invalidos": 0,
+  "oc_en_periodo": 365254,
+  "oc_final": 365251,
+  "oc_proveedores_persona_natural": 32970,
+  "lic_lineas_leidas": 1219162,
+  "lic_lineas_sector_adjudicadas": 1217959,
+  "lic_final": 11450,
+  "oc_por_anio": {
+    "2023": 176425,
+    "2024": 188826
+  },
+  "lic_por_anio": {
+    "2023": 5095,
+    "2024": 6355
+  },
+  "organismos": 224,
+  "periodo_fechas_oc": [
+    "2023-01-01",
+    "2023-06-30"
+  ],
+  "tipos_compra_incluidos": [
+    "Compra Agil",
+    "Convenio Marco",
+    "Licitacion Privada",
+    "Licitacion Publica",
+    "Trato Directo"
+  ]
+}

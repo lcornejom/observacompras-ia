@@ -1,0 +1,17 @@
+{
+  "learning_rate": 0.001,
+  "batch_size": 64,
+  "mejor_val_loss": 1.8294718265533447,
+  "val_accuracy_en_mejor": 0.49413734674453735,
+  "mejor_epoch": 25,
+  "epochs_ejecutados": 45,
+  "capas": [
+    "Dense 128 relu",
+    "Dropout 0.3",
+    "Dense 42 softmax"
+  ],
+  "optimizador": "adam",
+  "perdida": "categorical_crossentropy",
+  "codificador": "lsa",
+  "modelo_base": "paraphrase-multilingual-MiniLM-L12-v2"
+}

@@ -1,0 +1,26 @@
+{
+  "learning_rate": 0.01,
+  "batch_size": 8,
+  "val_loss_media": 0.005977040901780128,
+  "epochs_final": 133,
+  "variables": [
+    "n_compras",
+    "monto_total_log",
+    "n_proveedores",
+    "hhi",
+    "cr1",
+    "pct_trato_directo",
+    "monto_medio_log",
+    "pct_proveedores_nuevos",
+    "n_rubros",
+    "pct_oferente_unico"
+  ],
+  "capas": [
+    16,
+    4,
+    16,
+    10
+  ],
+  "optimizador": "rmsprop",
+  "perdida": "mse"
+}

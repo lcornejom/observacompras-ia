@@ -1,0 +1,173 @@
+{
+  "nivel_digitos": 4,
+  "clases": [
+    {
+      "codigo": "1214",
+      "nombre": "Metales y gases"
+    },
+    {
+      "codigo": "1411",
+      "nombre": "Productos de papel"
+    },
+    {
+      "codigo": "3020",
+      "nombre": "Estructuras prefabricadas"
+    },
+    {
+      "codigo": "4110",
+      "nombre": "Equipos e insumos para laboratorio"
+    },
+    {
+      "codigo": "4111",
+      "nombre": "Instrumentos de medida y experimentación"
+    },
+    {
+      "codigo": "4213",
+      "nombre": "Vestuario clínico"
+    },
+    {
+      "codigo": "4214",
+      "nombre": "Suministros y productos clínicos"
+    },
+    {
+      "codigo": "4215",
+      "nombre": "Equipos y suministros odontológicos"
+    },
+    {
+      "codigo": "4216",
+      "nombre": "Equipo y suministros para diálisis"
+    },
+    {
+      "codigo": "4218",
+      "nombre": "Productos para exámenes y control de pacientes"
+    },
+    {
+      "codigo": "4219",
+      "nombre": "Equipamiento para instalaciones médicas"
+    },
+    {
+      "codigo": "4220",
+      "nombre": "Productos para imágenes y de medicina nuclear"
+    },
+    {
+      "codigo": "4222",
+      "nombre": "Productos administrados por vía intravenosa y arterial"
+    },
+    {
+      "codigo": "4223",
+      "nombre": "Nutrición clínica"
+    },
+    {
+      "codigo": "4224",
+      "nombre": "Productos medicinales para deportes, prostéticos y ortopédicos"
+    },
+    {
+      "codigo": "4227",
+      "nombre": "Productos de resucitación, anestesia y respiratorios"
+    },
+    {
+      "codigo": "4228",
+      "nombre": "Productos para la esterilización médica"
+    },
+    {
+      "codigo": "4229",
+      "nombre": "Productos quirúrgicos"
+    },
+    {
+      "codigo": "4231",
+      "nombre": "Productos para el cuidado de heridas"
+    },
+    {
+      "codigo": "4321",
+      "nombre": "Equipos informáticos y accesorios"
+    },
+    {
+      "codigo": "4323",
+      "nombre": "Software"
+    },
+    {
+      "codigo": "4713",
+      "nombre": "Suministros de limpieza"
+    },
+    {
+      "codigo": "5010",
+      "nombre": "Frutas, verduras y frutos secos"
+    },
+    {
+      "codigo": "5110",
+      "nombre": "Medicamentos anti infecciosos"
+    },
+    {
+      "codigo": "5111",
+      "nombre": "Agentes antitumorales"
+    },
+    {
+      "codigo": "5113",
+      "nombre": "Medicamentos hematólicos"
+    },
+    {
+      "codigo": "5114",
+      "nombre": "Medicamentos para el sistema nervioso central"
+    },
+    {
+      "codigo": "5118",
+      "nombre": "Hormonas y antagonistas hormonales"
+    },
+    {
+      "codigo": "5119",
+      "nombre": "Agentes que afectan el agua y los electrolitos"
+    },
+    {
+      "codigo": "5120",
+      "nombre": "Medicamentos inmunomoduladores"
+    },
+    {
+      "codigo": "7210",
+      "nombre": "Servicios de atención, mantenimiento y reparaciones de edificios"
+    },
+    {
+      "codigo": "7213",
+      "nombre": "Construcción de edificios en general"
+    },
+    {
+      "codigo": "7310",
+      "nombre": "Industrias de plásticos y productos químicos"
+    },
+    {
+      "codigo": "7315",
+      "nombre": "Servicios de apoyo o soporte a la fabricación"
+    },
+    {
+      "codigo": "7611",
+      "nombre": "Servicios de limpieza"
+    },
+    {
+      "codigo": "7811",
+      "nombre": "Transporte de pasajeros"
+    },
+    {
+      "codigo": "8011",
+      "nombre": "Servicios de recursos humanos"
+    },
+    {
+      "codigo": "8510",
+      "nombre": "Servicios para el cuidado de la salud de las personas"
+    },
+    {
+      "codigo": "8512",
+      "nombre": "Medicina y servicios de salud"
+    },
+    {
+      "codigo": "8611",
+      "nombre": "Sistemas educativos complementarios"
+    },
+    {
+      "codigo": "9111",
+      "nombre": "Servicio doméstico y de cuidados"
+    },
+    {
+      "codigo": "9210",
+      "nombre": "Orden público y seguridad"
+    }
+  ]
+}

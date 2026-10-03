@@ -1,0 +1,34 @@
+{
+  "codificador": "lsa",
+  "advertencia_codificador": "Resultados con codificador de PRUEBA (TF-IDF+SVD), no con Sentence-BERT. No válidos para H2.",
+  "n_clases": 42,
+  "nivel_unspsc_digitos": 4,
+  "n_entrenamiento": 3379,
+  "n_validacion": 596,
+  "n_prueba": 4868,
+  "prueba_excluidas_por_clase_no_vista": 1487,
+  "hiperparametros_elegidos": {
+    "learning_rate": 0.001,
+    "batch_size": 64,
+    "mejor_val_loss": 1.8294718265533447,
+    "val_accuracy_en_mejor": 0.49413734674453735,
+    "mejor_epoch": 25,
+    "epochs_ejecutados": 45
+  },
+  "linea_base_C": 100.0,
+  "transfer_learning": {
+    "f1_macro": 0.40797361981221136,
+    "exactitud": 0.4291290057518488,
+    "top3": 0.695152013147083,
+    "n": 4868
+  },
+  "linea_base": {
+    "f1_macro": 0.42933244470595583,
+    "exactitud": 0.44515201314708297,
+    "top3": 0.7021364009860313,
+    "n": 4868
+  },
+  "H2_diferencia_f1_macro_puntos": -2.1358824893744464,
+  "H2_cumple_meta_5_puntos": false,
+  "top3_cumple_meta_90": false
+}
