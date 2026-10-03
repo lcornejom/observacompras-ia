@@ -104,3 +104,16 @@ def test_metricas_top3():
     probs = np.array([[.5, .3, .1, .1], [.1, .2, .3, .4]])
     m = K.metricas(np.array([0, 0]), probs, 4)
     assert m["exactitud"] == 0.5 and m["top3"] == 0.5
+
+
+def test_curva_media_kfold_y_epochs(tmp_path):
+    from observacompras import autoencoder as AE
+    from observacompras import graficos as G
+    hists = [{"loss": list(np.linspace(1, .1, n)), "val_loss": list(np.linspace(1, .2, n))} for n in (65, 120, 153)]
+    curva = AE.curva_media(hists)
+    assert len(curva) == 153
+    assert curva["val_loss"].notna().sum() == 65          # solo epochs comunes a todos los folds
+    tabla = pd.DataFrame({"mejor_epoch": [45, 100, 133]})
+    assert AE.epochs_optimos(tabla) == 100
+    G.curva_perdida_kfold(hists, curva, "t", tmp_path / "c.png", 100)
+    assert (tmp_path / "c.png").exists()

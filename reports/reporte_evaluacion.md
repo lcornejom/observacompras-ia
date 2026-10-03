@@ -15,7 +15,7 @@
 
 | Métrica | Resultado | Línea base | Meta | ¿Cumple? | Hip. |
 |---|---|---|---|---|---|
-| Recall@5% de anomalías sintéticas | 80% | 45% (regla z) | ≥ 80% | ✅ Sí | H1 |
+| Recall@5% de anomalías sintéticas | 75% | 45% (regla z) | ≥ 80% | ❌ No | H1 |
 | Estabilidad del ranking (top 10, media entre pares de folds) | 5.4 de 10 | — | ≥ 7 de 10 | ❌ No | H1 |
 | F1-macro del clasificador | 0.408 | 0.429 (TF-IDF + reg. logística) | Línea base + 5 puntos | ❌ No (-2.1 pts) | H2 |
 | Exactitud top-3 | 70% | 70% | ≥ 90% | ❌ No | H2 |
@@ -24,9 +24,9 @@
 
 ## H1 — Detector de patrones atípicos (autoencoder)
 
-- Hiperparámetros elegidos por K-fold (K = 5): learning rate 0.01, batch size 8, 133 epochs en el modelo final (val_loss media 0.00598).
+- Hiperparámetros elegidos por K-fold (K = 5): learning rate 0.01, batch size 8, 76 epochs en el modelo final (val_loss media 0.00598).
 - Estabilidad: coincidencia media del top 10 entre pares de folds 5.4, mínima 4; organismos presentes en el top 10 de los 5 folds: 3.
-- Coincidencia entre el top 10 del autoencoder y el de la regla z: 3 de 10.
+- Coincidencia entre el top 10 del autoencoder y el de la regla z: 5 de 10.
 
 Recall@5% por tipo de anomalía sintética:
 
@@ -35,7 +35,7 @@ Recall@5% por tipo de anomalía sintética:
 | combinacion | 50% | 0% |
 | monto_extremo | 100% | 100% |
 | oferente_unico | 75% | 0% |
-| proveedor_unico | 100% | 100% |
+| proveedor_unico | 75% | 100% |
 | trato_directo | 75% | 25% |
 
 ![Curva de pérdida del autoencoder](figuras/ae_curva_perdida.png)
@@ -61,16 +61,16 @@ Los autores revisan los 10 organismos más atípicos en `reports/revision_explic
 
 | # | Organismo | Explicación generada |
 |---|---|---|
-| 1 | CENTRAL DE ABASTECIMIENTO DEL SISTEMA NACIONAL DE SERVICIO DE SALUD | Este organismo se aparta del patrón típico principalmente por su monto total adjudicado (sobre lo esperado) y por el monto medio de sus compras (sobre lo esperado). |
-| 2 | SERVICIO DE SALUD MAGALLANES | Este organismo se aparta del patrón típico principalmente por la cantidad de rubros que compra (sobre lo esperado) y por el monto medio de sus compras (bajo lo esperado). |
-| 3 | SERVICIO DE SALUD DE ARICA Y PARINACOTA | Este organismo se aparta del patrón típico principalmente por la cantidad de rubros que compra (sobre lo esperado) y por el monto medio de sus compras (bajo lo esperado). |
-| 4 | SUPERINTENDENCIA DE SALUD | Este organismo se aparta del patrón típico principalmente por la cantidad de rubros que compra (bajo lo esperado) y por su porcentaje de trato directo (sobre lo esperado). |
-| 5 | SERVICIO NACIONAL DE SALUD HOSPITAL DE COCHRANE | Este organismo se aparta del patrón típico principalmente por el monto medio de sus compras (bajo lo esperado) y por su monto total adjudicado (bajo lo esperado). |
-| 6 | SERVICIO DE SALUD DEL MAULE HOSPITAL DE MOLINA | Este organismo se aparta del patrón típico principalmente por el monto medio de sus compras (bajo lo esperado) y por su porcentaje de proveedores nuevos (sobre lo esperado). |
-| 7 | SERVICIO NACIONAL DE SALUD HOSPITAL DE C | Este organismo se aparta del patrón típico principalmente por su monto total adjudicado (bajo lo esperado) y por el monto medio de sus compras (bajo lo esperado). |
-| 8 | SERVICIO NACIONAL DE SALUD HOSPITAL DE RIO NEGRO | Este organismo se aparta del patrón típico principalmente por el monto medio de sus compras (bajo lo esperado) y por su monto total adjudicado (bajo lo esperado). |
-| 9 | SERVICIO NACIONAL DE SALUD HOSPITAL DE LEBU | Este organismo se aparta del patrón típico principalmente por su porcentaje de proveedores nuevos (sobre lo esperado) y por su porcentaje de trato directo (bajo lo esperado). |
-| 10 | DIRECCION SALUD RURAL | Este organismo se aparta del patrón típico principalmente por el monto medio de sus compras (bajo lo esperado) y por su monto total adjudicado (bajo lo esperado). |
+| 1 | CENTRAL DE ABASTECIMIENTO DEL SISTEMA NACIONAL DE SERVICIO DE SALUD | Este organismo se aparta del patrón típico principalmente por el monto medio de sus compras (sobre lo esperado) y por su monto total adjudicado (sobre lo esperado). |
+| 2 | SERVICIO DE SALUD MAGALLANES | Este organismo se aparta del patrón típico principalmente por la cantidad de rubros que compra (sobre lo esperado) y por la concentración del gasto entre proveedores (HHI) (sobre lo esperado). |
+| 3 | FONDO NACIONAL DE SALUD | Este organismo se aparta del patrón típico principalmente por su porcentaje de trato directo (bajo lo esperado) y por su monto total adjudicado (sobre lo esperado). |
+| 4 | SERVICIO SALUD OCCIDENTE HOSPITAL DR FELIX BULNES CERDA | Este organismo se aparta del patrón típico principalmente por la cantidad de rubros que compra (bajo lo esperado) y por su número de proveedores (sobre lo esperado). |
+| 5 | SERVICIO DE SALUD VALDIVIA HOSPITAL BASE | Este organismo se aparta del patrón típico principalmente por su número de proveedores (sobre lo esperado) y por su número de compras (sobre lo esperado). |
+| 6 | SERVICIO DE SALUD DE ARICA Y PARINACOTA | Este organismo se aparta del patrón típico principalmente por la cantidad de rubros que compra (sobre lo esperado) y por la concentración del gasto entre proveedores (HHI) (sobre lo esperado). |
+| 7 | SERVICIO NACIONAL DE SALUD HOSPITAL DE COCHRANE | Este organismo se aparta del patrón típico principalmente por el monto medio de sus compras (bajo lo esperado) y por su monto total adjudicado (bajo lo esperado). |
+| 8 | SERVICIO NACIONAL DE SALUD HOSPITAL DE C | Este organismo se aparta del patrón típico principalmente por su monto total adjudicado (bajo lo esperado) y por el monto medio de sus compras (bajo lo esperado). |
+| 9 | SERVICIO NACIONAL DE SALUD HOSPITAL DE LEBU | Este organismo se aparta del patrón típico principalmente por su porcentaje de trato directo (bajo lo esperado) y por su porcentaje de proveedores nuevos (sobre lo esperado). |
+| 10 | HOSPITAL CLINICO HERMINDA MARTIN | Este organismo se aparta del patrón típico principalmente por su número de proveedores (sobre lo esperado) y por su porcentaje de trato directo (bajo lo esperado). |
 
 ## H4 — Utilidad
 

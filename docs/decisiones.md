@@ -67,7 +67,8 @@ app funcione sin GPU. El modelo de lenguaje solo se carga si el usuario escribe 
 * **Organismos sin licitaciones:** el % con un solo oferente se imputa con la mediana de 2023 y se
   marca en `oferente_unico_imputado`.
 * **Modelo final del autoencoder:** como en el ejemplo de Boston Housing, el K-fold elige la
-  combinación de hiperparámetros y el número de epochs (mínimo de la curva de validación media); luego
+  combinación de hiperparámetros y el número de epochs (mediana del mejor epoch de cada fold, porque el
+  early stopping detiene cada fold en un epoch distinto); luego
   se entrena con todos los organismos de 2023. La estabilidad del ranking se mide con los 5 modelos
   del K-fold (coincidencia media del top 10 entre pares de folds).
 * **Clasificador:** como Keras toma el 15% final como validación, los datos se barajan con la semilla

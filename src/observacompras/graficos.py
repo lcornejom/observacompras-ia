@@ -31,6 +31,26 @@ def curva_perdida(curva: pd.DataFrame, titulo: str, ruta, epoch_optimo: int | No
     _guardar(fig, ruta)
 
 
+def curva_perdida_kfold(historiales: list[dict], curva: pd.DataFrame, titulo: str, ruta,
+                        epochs_final: int | None = None):
+    """Curvas de cada fold (finas) y media en los epochs comunes a todos los folds (gruesas)."""
+    fig, ax = plt.subplots(figsize=(7, 4))
+    for h in historiales:
+        ax.plot(np.arange(1, len(h["loss"]) + 1), h["loss"], color=AZUL, alpha=0.18, lw=0.8)
+        ax.plot(np.arange(1, len(h["val_loss"]) + 1), h["val_loss"], color=NARANJO, alpha=0.18, lw=0.8)
+    ax.plot(curva["epoch"], curva["loss"], color=AZUL, lw=2, label="Entrenamiento (media)")
+    ax.plot(curva["epoch"], curva["val_loss"], color=NARANJO, lw=2, label="Validación (media)")
+    if epochs_final:
+        ax.axvline(epochs_final, color=GRIS, ls="--", lw=1,
+                   label=f"Epochs del modelo final ({epochs_final}, mediana de folds)")
+    ax.set_xlabel("Epoch")
+    ax.set_ylabel("Pérdida (mse)")
+    ax.set_title(titulo, fontsize=11)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.legend(frameon=False, fontsize=8)
+    _guardar(fig, ruta)
+
+
 def heatmap_busqueda(tabla: pd.DataFrame, valor: str, titulo: str, ruta):
     piv = tabla.groupby(["learning_rate", "batch_size"])[valor].mean().unstack()
     fig, ax = plt.subplots(figsize=(5, 3.6))

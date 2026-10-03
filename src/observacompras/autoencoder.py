@@ -116,21 +116,27 @@ def elegir_configuracion(tabla: pd.DataFrame) -> dict:
 def curva_media(historiales: list[dict]) -> pd.DataFrame:
     """Curva de pérdida media por epoch entre folds (Boston Housing).
 
-    Solo se promedian los epochs que completaron todos los folds: como el
-    early stopping detiene cada fold en un epoch distinto, más allá de ese
-    punto la media mezclaría folds y produciría saltos artificiales."""
-    largo = min(len(h["loss"]) for h in historiales)
-    def _media(clave):
+    Como el early stopping detiene cada fold en un epoch distinto, la media
+    solo se calcula en los epochs que completaron todos los folds (`n_folds`
+    indica cuántos folds aportan a cada epoch)."""
+    largo = max(len(h["loss"]) for h in historiales)
+    def _matriz(clave):
         m = np.full((len(historiales), largo), np.nan)
         for i, h in enumerate(historiales):
             m[i, : len(h[clave])] = h[clave]
-        return np.nanmean(m, axis=0)
-    return pd.DataFrame({"epoch": np.arange(1, largo + 1), "loss": _media("loss"), "val_loss": _media("val_loss")})
+        return m
+    L, V = _matriz("loss"), _matriz("val_loss")
+    n = (~np.isnan(V)).sum(axis=0)
+    completo = n == len(historiales)
+    return pd.DataFrame({"epoch": np.arange(1, largo + 1),
+                         "loss": np.where(completo, np.nanmean(L, axis=0), np.nan),
+                         "val_loss": np.where(completo, np.nanmean(V, axis=0), np.nan),
+                         "n_folds": n})
 
 
-def epochs_optimos(historiales: list[dict]) -> int:
-    curva = curva_media(historiales)
-    return int(curva.loc[curva["val_loss"].idxmin(), "epoch"])
+def epochs_optimos(tabla_config: pd.DataFrame) -> int:
+    """Epochs del modelo final: mediana del mejor epoch de cada fold."""
+    return int(np.median(tabla_config["mejor_epoch"]))
 
 
 def entrenar_final(X: np.ndarray, learning_rate: float, batch_size: int, epochs: int):

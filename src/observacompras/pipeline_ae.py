@@ -42,9 +42,14 @@ def ejecutar(verbose: int = 0, rapido: bool = False) -> dict:
     lr, bs = mejor["learning_rate"], mejor["batch_size"]
     curva = AE.curva_media(hists[(lr, bs)])
     curva.to_csv(C.DIR_REPORTES / "ae_curva_perdida.csv", index=False)
-    n_epochs = AE.epochs_optimos(hists[(lr, bs)])
-    G.curva_perdida(curva, f"Autoencoder: pérdida media en K-fold (lr={lr:g}, batch={bs})",
-                    C.DIR_FIGURAS / "ae_curva_perdida.png", n_epochs)
+    sel = tabla[(tabla["learning_rate"] == lr) & (tabla["batch_size"] == bs)]
+    n_epochs = AE.epochs_optimos(sel)
+    with open(C.DIR_REPORTES / "ae_historiales_kfold.json", "w") as f:
+        json.dump({"learning_rate": lr, "batch_size": bs,
+                   "folds": [{k: [float(x) for x in v] for k, v in h.items()} for h in hists[(lr, bs)]]}, f)
+    G.curva_perdida_kfold(hists[(lr, bs)], curva,
+                          f"Autoencoder: pérdida por fold y media (lr={lr:g}, batch={bs})",
+                          C.DIR_FIGURAS / "ae_curva_perdida.png", n_epochs)
     G.heatmap_busqueda(tabla, "mejor_val_loss", "Autoencoder: val_loss media (K-fold)",
                        C.DIR_FIGURAS / "ae_busqueda.png")
 

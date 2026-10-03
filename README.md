@@ -37,9 +37,10 @@ abiertas están justificadas en [`docs/decisiones.md`](docs/decisiones.md).
 | Ejecución con 2023 y 2024 completos | ⏳ Pendiente: requiere los archivos de ChileCompra de ambos años |
 | H3 (revisión de explicaciones) y H4 (pruebas con usuarios) | ⏳ Pendiente: plantillas en `reports/` y guía en `docs/guia_pruebas_usuario.md` |
 
-Resultados preliminares (modo demostración): el autoencoder ubica el **80%** de las anomalías
-sintéticas en el 5% superior, frente al 45% de la regla z (H1 cumple), pero la estabilidad del top 10
-entre folds es 5,4 de 10 (meta: 7). Las métricas del clasificador no son válidas hasta generar los
+Resultados preliminares (modo demostración, un trimestre de entrenamiento): el autoencoder ubica el
+**75%** de las anomalías sintéticas en el 5% superior, frente al 45% de la regla z (meta: 80%), y es el
+único método que detecta las anomalías por combinación de variables. La estabilidad del top 10 entre
+folds es 5,4 de 10 (meta: 7). Las métricas del clasificador no son válidas hasta generar los
 embeddings con Sentence-BERT.
 
 ## Estructura
@@ -84,7 +85,7 @@ Sentence-BERT (~470 MB). Las demás funciones no lo necesitan.
 1. Descargue desde [datos-abiertos.chilecompra.cl](https://datos-abiertos.chilecompra.cl) los archivos
    del sector Salud de 2023 y 2024 (órdenes de compra y licitaciones).
 2. Abra `notebooks/01_ingesta_y_perfiles.ipynb` en Colab. La primera celda monta Google Drive y clona el
-   repositorio en `MyDrive/observacompras-ia`; copie los archivos descargados en su carpeta `data/raw/`.
+   repositorio en `MyDrive/observacompras-ia`; copie los archivos descargados, sin descomprimir, en su carpeta `data/raw/`.
 3. Ejecute los cuadernos 01 a 04 en orden (para el 03 conviene activar la GPU).
 
 ### 3. Reproducir por línea de comandos
