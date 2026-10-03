@@ -25,7 +25,8 @@ presentadas en una aplicación Streamlit para un analista no técnico:
 
 La evaluación de las hipótesis H1–H4 (Tabla 4 del documento) está en
 [`reports/reporte_evaluacion.md`](reports/reporte_evaluacion.md). Las decisiones que el documento deja
-abiertas están justificadas en [`docs/decisiones.md`](docs/decisiones.md).
+abiertas están justificadas en [`docs/decisiones.md`](docs/decisiones.md), y el estado y los próximos pasos en
+[`docs/estado_y_proximos_pasos.md`](docs/estado_y_proximos_pasos.md).
 
 ## Estado actual
 
